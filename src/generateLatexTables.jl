@@ -21,6 +21,9 @@ function createTexTables(parameters::ExpeParameters; compileTexFile::Bool=true, 
 
     tableConstructed = false
 
+    if length(parameters.latexFormatPath) == 0
+        println(Dates.format(now(), "yyyy/mm/dd - HHhMM:SS"), " Warning: there is no latex table specified (i.e., the argument \"latexFormatPath\" of the json file is empty).")
+    end
     for tableStructure in parameters.latexFormatPath
         println(Dates.format(now(), "yyyy/mm/dd - HHhMM:SS"), "\t\t\t Creating table from ", tableStructure)
 
